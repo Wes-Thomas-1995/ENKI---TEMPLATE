@@ -1,0 +1,169 @@
+{% extends 'index.html' %}
+{% block content %}
+{% load static %}
+
+
+
+<div class="card mb-3">
+  <div class="bg-holder d-none d-lg-block bg-card" style="background-image:url({% static 'assets/img/icons/spot-illustrations/corner-2.png' %});"></div> <!--/.bg-holder-->
+  <div class="card-body position-relative">
+    <div class="row">
+      <div class="col-lg-8">
+        <h3>DT Electrical - Home</h3>
+        <h6 class="mt-1 fs--1">Haywards Heath Daily Sales  &nbsp;-&nbsp;  <n class="text-success fs--1">£2984.34</n></h6>
+        <h6 class="mt-1 fs--1">{{date}}</h6>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="row light">
+  <div class="col-sm-6 col-lg-4 mb-4">
+    <a href="{% url 'home-page' %}"><button class="btn btn-secondary me-1 mb-1 fs-1" type="button">Review Inventory<br><br><p class="fs--1">Review the inventory at DT Electrical Supplies</p></button></a>
+  </div>
+  <div class="col-sm-6 col-lg-4 mb-4">
+    <a href="{% url 'home-page' %}"><button class="btn btn-secondary me-1 mb-1 fs-1 float-start" type="button">Create Sales Order<br><br><p class="fs--1 float-start">Create a sales order from your logged into store.</p></button></a>
+  </div>
+  <div class="col-sm-6 col-lg-4 mb-4">
+    <a href="{% url 'home-page' %}"><button class="btn btn-secondary me-1 mb-1 fs-1 float-start" type="button">Review Inter-Store Link<br><br><p class="fs--1 float-start">Review the product list to be sent between stores.</p></button></a>
+  </div>
+</div>
+
+<br>
+
+<div class="card border border-secondary">
+                <div class="card-header">
+                  <div class="row flex-between-center g-0">
+                    <div class="col-auto">
+                      <h6 class="mb-0">Total Monthly Sales</h6>
+                    </div>
+                    <div class="col-auto d-flex">
+                      <div class="form-check mb-0 d-flex">
+                        <input class="form-check-input form-check-input-primary" id="ecommerceLastMonth" type="checkbox" checked="checked" />
+                        <label class="form-check-label ps-2 fs--2 text-600 mb-0" for="ecommerceLastMonth">Haywards Heath<span class="text-dark d-none d-md-inline">: $32,502.00</span></label>
+                      </div>
+                      <div class="form-check mb-0 d-flex ps-0 ps-md-3">
+                        <input class="form-check-input ms-2 form-check-input-warning opacity-75" id="ecommercePrevYear" type="checkbox" checked="checked" />
+                        <label class="form-check-label ps-2 fs--2 text-600 mb-0" for="ecommercePrevYear">DT Average<span class="text-dark d-none d-md-inline">: $46,018.00</span></label>
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <div class="dropdown font-sans-serif btn-reveal-trigger">
+                        <button class="btn btn-link text-600 btn-sm dropdown-toggle dropdown-caret-none btn-reveal" type="button" id="dropdown-total-sales-ecomm" data-bs-toggle="dropdown" data-boundary="viewport" aria-haspopup="true" aria-expanded="false"><span class="fas fa-ellipsis-h fs--2"></span></button>
+                        <div class="dropdown-menu dropdown-menu-end border py-2" aria-labelledby="dropdown-total-sales-ecomm"><a class="dropdown-item" href="#!">View</a><a class="dropdown-item" href="#!">Export</a>
+                          <div class="dropdown-divider"></div><a class="dropdown-item text-danger" href="#!">Remove</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body pe-xxl-0">
+                  <div class="echart-line-total-sales-ecommerce" data-echart-responsive="true" data-options='{"optionOne":"ecommerceLastMonth","optionTwo":"ecommercePrevYear"}'></div>
+                </div>
+              </div>
+
+<br>
+
+<div class="card border border-secondary">
+      <div class="card-body">
+      <div class="card-title">Daily Transactions</div>
+        <br>
+      <div id="tableExample2" data-list='{"valueNames":["name","email","age"],"page":5,"pagination":true}'>
+        <div class="table-responsive scrollbar">
+          <table class="table table-bordered table-striped fs--1 mb-0">
+            <thead class="bg-200 text-900">
+              <tr>
+                <th class="sort" data-sort="name">Name</th>
+                <th class="sort" data-sort="email">Email</th>
+                <th class="sort" data-sort="age">Age</th>
+              </tr>
+            </thead>
+            <tbody class="list">
+              <tr>
+                <td class="name">Anna</td>
+                <td class="email">anna@example.com</td>
+                <td class="age">18</td>
+              </tr>
+              <tr>
+                <td class="name">Homer</td>
+                <td class="email">homer@example.com</td>
+                <td class="age">35</td>
+              </tr>
+              <tr>
+                <td class="name">Oscar</td>
+                <td class="email">oscar@example.com</td>
+                <td class="age">52</td>
+              </tr>
+              <tr>
+                <td class="name">Emily</td>
+                <td class="email">emily@example.com</td>
+                <td class="age">30</td>
+              </tr>
+              <tr>
+                <td class="name">Jara</td>
+                <td class="email">jara@example.com</td>
+                <td class="age">25</td>
+              </tr>
+              <tr>
+                <td class="name">Clark</td>
+                <td class="email">clark@example.com</td>
+                <td class="age">39</td>
+              </tr>
+              <tr>
+                <td class="name">Jennifer</td>
+                <td class="email">jennifer@example.com</td>
+                <td class="age">52</td>
+              </tr>
+              <tr>
+                <td class="name">Tony</td>
+                <td class="email">tony@example.com</td>
+                <td class="age">30</td>
+              </tr>
+              <tr>
+                <td class="name">Tom</td>
+                <td class="email">tom@example.com</td>
+                <td class="age">25</td>
+              </tr>
+              <tr>
+                <td class="name">Michael</td>
+                <td class="email">michael@example.com</td>
+                <td class="age">39</td>
+              </tr>
+              <tr>
+                <td class="name">Antony</td>
+                <td class="email">antony@example.com</td>
+                <td class="age">39</td>
+              </tr>
+              <tr>
+                <td class="name">Raymond</td>
+                <td class="email">raymond@example.com</td>
+                <td class="age">52</td>
+              </tr>
+              <tr>
+                <td class="name">Marie</td>
+                <td class="email">marie@example.com</td>
+                <td class="age">30</td>
+              </tr>
+              <tr>
+                <td class="name">Cohen</td>
+                <td class="email">cohen@example.com</td>
+                <td class="age">25</td>
+              </tr>
+              <tr>
+                <td class="name">Rowen</td>
+                <td class="email">rowen@example.com</td>
+                <td class="age">39</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="d-flex justify-content-center mt-3"><button class="btn btn-sm btn-falcon-default me-1" type="button" title="Previous" data-list-pagination="prev"><span class="fas fa-chevron-left"></span></button>
+          <ul class="pagination mb-0"></ul><button class="btn btn-sm btn-falcon-default ms-1" type="button" title="Next" data-list-pagination="next"><span class="fas fa-chevron-right"> </span></button>
+        </div>
+      </div>
+      </div>
+</div>
+
+{% endblock content %}

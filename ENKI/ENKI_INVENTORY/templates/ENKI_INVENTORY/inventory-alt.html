@@ -1,0 +1,93 @@
+{% extends 'index.html' %}
+{% block content %}
+{% load static %}
+
+
+
+<div class="card mb-3">
+  <div class="bg-holder d-none d-lg-block bg-card" style="background-image:url({% static 'assets/img/icons/spot-illustrations/corner-2.png' %});"></div> <!--/.bg-holder-->
+  <div class="card-body position-relative">
+    <div class="row">
+      <div class="col-lg-8">
+        <h3>DT Electrical - Inventory</h3>
+        <h6 class="mt-1 fs--1">Inventory Location  &nbsp;-&nbsp;  <n class="text-success fs--1">{{A}}</n></h6>
+        <h6 class="mt-1 fs--1">{{date}}</h6>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<br>
+<br>
+<center>
+<div class=" clearfix">
+  <button class="btn btn-secondary float-start" type="button">Export Inventory in Excel</button>
+
+  <div class="dropdown text-sans-serif d-inline-block mb-2">
+  <button class="btn btn-falcon-default dropdown-toggle" id="dropdownMenuButton" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select Store Location </button>
+  <div class="dropdown-menu dropdown-menu-right py-0" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="{% url 'inventory' %}">All Locations</a>
+    <div class="dropdown-divider"></div>
+    {% for item in droplist %}
+    <a class="dropdown-item" href="{% url 'inventory-specific' item.child_company_id %}">{{item.company_location}}</a>
+    {% endfor %}
+  </div></div>
+
+  <button class="btn btn-secondary float-end" type="button">Semi Annual Stock Upload</button>
+</div></center>
+<br>
+<br>
+
+
+<div class="card border border-secondary">
+      <div class="card-body">
+      <div class="card-title">
+        <div class="d-flex flex-column flex-sm-row justify-content-between">Inventory Overview&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="dropdown font-sans-serif d-inline-block mb-2">
+          <button class="btn btn-falcon-default  btn-sm dropdown-toggle" id="dropdownMenuButton1" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter the Category&nbsp;&nbsp;&nbsp;</button>
+          <div class="dropdown-menu dropdown-menu-end py-0" aria-labelledby="dropdownMenuButton1">
+            <a class="dropdown-item" href="#">Product Category</a>
+            <a class="dropdown-item" href="#">Product Type</a>
+            <a class="dropdown-item" href="#">Manufacturer</a>
+          </div>
+        </div>
+        </div>
+      </div>
+
+        <br>
+      <div id="tableExample2" data-list='{"valueNames":["code","category","type","manufacturer","quantity","description"],"page":15,"pagination":true}'>
+        <div class="table-responsive scrollbar">
+          <table class="table table-bordered table-striped fs--1 mb-0">
+            <thead class="bg-200 text-900">
+              <tr>
+                <th class="sort" data-sort="code" style="text-align:center"> Product Code</th>
+                <th class="sort" data-sort="category" style="text-align:center"> Product Category</th>
+                <th class="sort" data-sort="type" style="text-align:center"> Product Type</th>
+                <th class="sort" data-sort="manufacturer" style="text-align:center"> Manufacturer</th>
+                <th class="sort" data-sort="quantity" style="text-align:center"> Stock Quantity</th>
+                <th class="sort" data-sort="description" style="text-align:center"> Product Description</th>
+              </tr>
+            </thead>
+            <tbody class="list">
+              {% for product in inventory %}
+              <tr>
+                <td style="text-align:left" class="code fs--2">{{product.product_code__product_code}}</td>
+                <td style="text-align:center" class="category fs--2">{{product.product_code__categorisation}}</td>
+                <td style="text-align:center" class="type fs--2">{{product.product_code__product_type}}</td>
+                <td style="text-align:center" class="manufacturer fs--2">{{product.product_code__manufacturer__manufacturer}}</td>
+                <td style="text-align:center" class="quantity fs--2 text-success">{{product.total}}</td>
+                <td style="text-align:center" class=" description fs--2">{{product.product_code__description}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <div class="d-flex justify-content-center mt-3"><button class="btn btn-sm btn-falcon-default me-1" type="button" title="Previous" data-list-pagination="prev"><span class="fas fa-chevron-left"></span></button>
+          <ul class="pagination mb-0"></ul><button class="btn btn-sm btn-falcon-default ms-1" type="button" title="Next" data-list-pagination="next"><span class="fas fa-chevron-right"> </span></button>
+        </div>
+      </div>
+      </div>
+</div>
+
+{% endblock content %}
